@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Genre(
+REATE TABLE IF NOT EXISTS Genre(
     genre_id SERIAL PRIMARY KEY,
     name VARCHAR(30) NOT NULL 
 );
@@ -33,18 +33,18 @@ CREATE TABLE IF NOT EXISTS Tracks(
     album_id INTEGER NOT NULL REFERENCES Albums(album_id)
 );
 
-CREATE TABLE IF NOT EXISTS Compilation(
-    compilation_id SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Collections(
+    collections_id SERIAL PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
     data INTEGER NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS compilation_traks (
+CREATE TABLE IF NOT EXISTS collections_traks (
     id SERIAL PRIMARY KEY,
     track_id INTEGER NOT NULL REFERENCES Tracks(track_id),
-    compilation_id INTEGER NOT NULL REFERENCES Compilation(compilation_id)
+    collections_id INTEGER NOT NULL REFERENCES Collections(collections_id)
 );
 
-UPDATE compilation
+UPDATE collections
    SET "data" = 2019
- WHERE compilation_id = 2;
+ WHERE collections_id = 2;
